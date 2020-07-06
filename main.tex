@@ -15,6 +15,7 @@
 \usepackage[caption = false]{subfig}
 % \usepackage[authoryear,round]{natbib}
 % \usepackage{Cjsref}
+\usepackage{xcolor}
 
 \begin{document}
 \firstpage{1}
@@ -57,7 +58,7 @@ Ancillary functions \sep complete class\sep minimally-supported design\sep nonli
 \begin{abstract}
 \abstractsection{}
 \abstractsection{Abstract}
-Nonlinear models are challenging in optimal designs due to the complexity and lack of canonical forms. The complete class strategy provided a unified framework for studying optimal designs for nonlinear model. However, due to the assumptions of the current strategy, many models are not applicable under this framework. In this paper, we propose a tool called ancillary functions as an extension to the complete class strategy. We also provide results on minimally supported designs with proper conditions. This tool is demonstrated with two-parameter dose-response models including the Beta-Poisson model, complementary log-log model, and skewed logit model. The results of this paper add to the previous complete class framework and make the minimally supported design available for more nonlinear models that were previously not feasible.  
+Nonlinear models are challenging in optimal designs due to the complexity and lack of canonical forms. The complete class strategy provided a unified framework for studying optimal designs for nonlinear models. However, due to the assumptions of the current strategy, many models are not applicable under this framework. In this paper, we propose a tool called ancillary functions as an extension to the complete class strategy. We also provide results on minimally supported designs with proper conditions. This tool is demonstrated with two-parameter dose-response models including the Beta-Poisson model, complementary log-log model, and skewed logit model. The results of this paper add to the previous complete class framework and make the minimally supported design available for more nonlinear models that were previously not feasible.  
 
 % Insert your abstract here; it should
 % typically be up to ten lines long. Avoid symbols as much as possible. Formulas
@@ -162,8 +163,12 @@ For some integer $p_1$, $1\le p_1<p$, partition $C(\theta,z_i)$ as \begin{equati
 \end{equation}
 
 
-Instead of Equation \eqref{l-ordering}, its sufficient condition in Equations \eqref{eq: strategy1}-\eqref{eq: strategy2} can be used to find the complete class of designs with $n$ support points. This complete class contains a design that is at least as good as the optimal design in Loewner ordering.
+Instead of Equation \eqref{l-ordering}, its sufficient condition in Equations \eqref{eq: strategy1}-\eqref{eq: strategy2} can be used to find the complete class of designs with $n$ support points. This complete class contains a design that is at least as good as the optimal design in Loewner ordering. \\
 
+{\color{blue} Choice of $p_1$ in \eqref{def_block} is a relatively more complicated problem, as it depends on the nonlinear model of interest. An examples of the choice was for exponential regression model \[Y_i = a_1e^{-\lambda_1x_i} + a_2e^{-\lambda_2x_i} + \epsilon_i.\] discussed in Yang \& Stufken (2012).
+In this scenario $p=4$ with 4 parameters - $\lambda_1, \lambda_2, a_1, a_2$, and  $p_1$ was chosen to be 2 based on the model properties. We demonstrate in Section 4.3 - 4.5 of this paper with examples on how to choose $p_1$ as well.
+
+}
 
 \section{Methodology and limitations} \label{metho}
 To identify the complete class of designs with $n$ support points, Yang \& Stufken (2012) and Dette \& Melas (2011) used Tchebycheff System (abbreviated ``T-system") as a bridge towards Equations \eqref{eq: strategy1} - \eqref{eq: strategy2}. The definition of a T-system is as follows.
@@ -181,7 +186,7 @@ u_n(t_0) &u_k(t_1) &\ldots &u_k(t_k) \\
      is strictly positive whenever $a\le t_0 <t_1< \ldots< t_k\le b$.
 \end{theorem}
 For simplicity, we use $U(t_0,\ldots,t_k)$ to denote the left-hand side of Equation~\eqref{eq: tdef2} for the following. 
-Define a function sequence $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k(z)^Q\}$ as follows: Partition $C(\theta,z)$ as in Equation \eqref{def_block} and Equation \eqref{def_c22} and let $\Psi_1(z),\ldots,\Psi_{k-1}(z)$ to be the maximum set of linearly independent non-constant terms in $C_{11}(z)$ and $C_{21}(z)$; Also define $\Psi^Q_{k}(z)$ as \[\Psi_k^Q(z) = Q^TC_{22}(z)Q\] where $Q$ is a nonzero vector of dimension $p_1\times 1$; Let $\Psi_0(z) = 1$. Yang \& Stufken (2012) showed that, given this function sequence  and considering the $\Psi_i$ as $u_i$ functions in the T-system, we can identify a complete class of designs with the number of support points if one of the two following conditions holds. % \begin{theorem}{Theorem 1}{}\label{2012a}
+Define a function sequence $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k(z)^Q\}$ as follows: Partition $C(\theta,z)$ as in Equation \eqref{def_block} and Equation \eqref{def_c22} and let $\Psi_1(z),\ldots,\Psi_{k-1}(z)$ to be the maximum set of linearly independent non-constant terms in $C_{11}(z)$ and $C_{21}(z)$; Also define $\Psi^Q_{k}(z)$ as \[\Psi_k^Q(z) = Q^TC_{22}(z)Q\] where $Q$ is a nonzero vector of dimension $p_1\times 1$; Let $\Psi_0(z) = 1$ ( {\color{blue} see Section 4.3-4.5 for examples of these functions}). Yang \& Stufken (2012) showed that, given this function sequence  and considering the $\Psi_i$ as $u_i$ functions in the T-system, we can identify a complete class of designs with the number of support points if one of the two following conditions holds. % \begin{theorem}{Theorem 1}{}\label{2012a}
 % For a regression model with a single regression variable $x$, suppose that the information matrix $M(z)$ can be written as in Equation \eqref{eq:1}-\eqref{eq:2} for $z\in[A,B]$. Partitioning $C(\theta,z)$ as in Equation \eqref{def_block} and Equation \eqref{def_c22} and let $\Psi_1(z),\ldots,\Psi_{k-1}(z)$ to be the maximum set of linearly independent non-constant terms in $C_{11}(z)$ and $C_{21}(z)$. $\Psi^Q_{k}(z)$ is defined as \[\Psi_k^Q(z) = Q^TC_{22}(z)Q\] where $Q$ is a nonzero vector of dimension $p_1\times 1$. Here $\Psi_0(z) = 1$.
 % Suppose that either 
 \begin{equation}
@@ -190,7 +195,7 @@ Define a function sequence $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k(z)^Q\}$ as foll
 \end{equation} form T-systems, or\begin{equation}\label{eq: 3.6}
     \{\Psi_0(z),\Psi_1(z),\ldots,\Psi_{k-1}(z)\} \text{ and }  \{\Psi_0(z),\Psi_1(z),\ldots, -\Psi_k(z)^Q\} 
 \end{equation}
-     form T-systems. 
+     form T-systems.
 % Then the following results hold:
 % \begin{enumerate}[(1)]
 %     \item  For $k=2l-1$, $l\in \mathbb{Z}^+$, if Equation \eqref{eq: 3.5} holds, the designs with at most $l$ support points, including $B$, form a complete class
@@ -227,6 +232,10 @@ Yang \& Stufken (2012) showed that $F(z)$ can be used to identify a complete cla
 
 
  This strategy has been applied to many non-linear dose-response models such as logistic model, LINEXP model (Demidenko, 2006), and double-exponential regrowth model. But there are some models that are not applicable due to the assumptions. For example, a complementary log-log model has the following form. \[P(y=1|x) = 1-e^{-e^{z}}, z\in(-\infty,\infty)\] with which we could obtaib function sequence $\{1,g(z),$ $zg(z),z^2g(z)\}$, where \[g(z)=\frac{e^{2z}}{e^{e^z}-1}.\] 
+ {\color{blue}The $f_{l,t}$ functions are then\[f_{11} = g'(z)\]
+\[f_{2,1} = g(z)+zg'(z), f_{2,2} = 1+ (\frac{g(z)}{g'(z)})'\]
+\[f_{3,1} = 2zg(z)+z^2g'(z), f_{3,2} = 2z+ (\frac{2zg(z)}{g'(z)})'\]
+\[f_{3,3} = (\frac{ f_{3,2}}{ f_{2,2}})' =  (\frac{ 2z+ (\frac{2zg(z)}{g'(z)})'}{ 1+ (\frac{g(z)}{g'(z)})'})'  \]}
  With Mathematica, calculations shows that $f_{1,1}(z) = g'(z)$ has a root at $z=0.4660$, and $F(z)$ has a root at $z=0.0491$, which violates Assumptions (2) and (3). According to Yang \& Stufken (2012), we can only obtain the complete class for three disjoint intervals of z, $(-\infty, 0.0491)$, $(0.0491, 0.4660)$, and $(0.4660,\infty)$ separately, each with 2 support points. Yang \& Stufken (2009) introduced a method to combine designs for two intervals that are symmetric about zero and demonstrated with the 2-parameter logistic model. However, since there is no symmetry existing among the three intervals for the complementary log-log model, we cannot combine them and obtain a single unified design with the current approach.
 
  
@@ -264,6 +273,9 @@ The new sequence $S_3$ results in a system of equations that include Equations \
 
 
 Besides satisfying Equations \eqref{eq: added1}-\eqref{eq: added3}, with good choice of $S_2$, the sequence $S_3$ can also meet the three assumptions in Section~\ref{metho}, which indicates the existence of a complete class of designs that is ``optimal" in Loewner ordering. However, the new designs may include more support points than desired, as there are more equations in the system of equations. We show in the following discussions that for some models, the ``extra" points are asymptotically removable under certain conditions.
+
+
+{\color{blue} It is worth noting that Definition~\ref{anci} doesn't imply $k_1<k$ or $k_1>k$. The choice of $k_1$ depends on the specific model structures without general method. However, a smaller $k_1$ value is usually preferred if we can find several groups of applicable ancillary functions with different $k_1$ values. This is because the extra equations added to Equations (13)-(14) will often result in more support points in the solution class and therefore can be not ideal in practical situations. In Section 4.3 – 4.5, we demonstrate how $k_1$ is chosen for Beta Poisson model, complementary log-log model, and skewed logit model.}
 
  
 \subsection{Removable Boundary Points}
